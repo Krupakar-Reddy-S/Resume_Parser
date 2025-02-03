@@ -51,7 +51,7 @@ elif read_button and uploaded_file is not None:
 
         pdf_reader = PDFReader()
         documents = pdf_reader.load_data(file=temp_path)
-        resume_text = documents[0].text
+        resume_text = "\n\n".join([f"Page {i+1}\n{doc.text}" for i, doc in enumerate(documents)])
 
         links = extract_links(resume_text)
 
